@@ -185,7 +185,7 @@
     
     if (_newFrameAvailableBlock != NULL)
     {
-        _newFrameAvailableBlock();
+        _newFrameAvailableBlock(frameTime);
     }
 }
 
