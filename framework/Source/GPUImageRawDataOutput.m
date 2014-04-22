@@ -42,6 +42,7 @@
     }
 
     self.enabled = YES;
+    _currentFrameTime = CMTimeMake(0, 1);
     lockNextFramebuffer = NO;
     outputBGRA = resultsInBGRAFormat;
     imageSize = newImageSize;
@@ -182,10 +183,11 @@
 - (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
 {
     hasReadFromTheCurrentFrame = NO;
+    _currentFrameTime = frameTime;
     
     if (_newFrameAvailableBlock != NULL)
     {
-        _newFrameAvailableBlock(frameTime);
+        _newFrameAvailableBlock();
     }
 }
 

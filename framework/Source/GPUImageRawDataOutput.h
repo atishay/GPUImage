@@ -26,7 +26,8 @@ typedef struct GPUByteColorVector GPUByteColorVector;
 #endif
 
 @property(readonly) GLubyte *rawBytesForImage;
-@property(nonatomic, copy) void(^newFrameAvailableBlock)(CMTime);
+@property(nonatomic, readonly) CMTime currentFrameTime;
+@property(nonatomic, copy) void(^newFrameAvailableBlock)();
 @property(nonatomic) BOOL enabled;
 
 // Initialization and teardown
